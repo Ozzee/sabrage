@@ -3,7 +3,7 @@ from django.db import models
 
 class Item(models.Model):
 	""" An item that a user can put on their tab """
-	name 		= models.CharField(max_length=200)
+	name 		= models.CharField(max_length=200, primary_key=True)
 	description = models.TextField(blank=True)
 
 	def __str__(self):

@@ -33,3 +33,6 @@ def add_entry(request):
 	e.save()
 
 	return JsonResponse(entry)
+
+def suggest_users(request):
+	return JsonResponse({'value': '', 'suggestions': ['Oskar', 'Pietu', 'Peter']})

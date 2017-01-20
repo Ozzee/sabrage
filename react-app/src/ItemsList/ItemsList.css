@@ -1,6 +1,9 @@
 .ItemsList {
 	
 }
+table {
+	width: 100%;
+}
 
 .ItemsTable td {
 	padding: 1em;
@@ -9,5 +12,5 @@
 }
 
 td.time {
-	padding-left: 5em;
+	text-align: right;
 }

@@ -22,7 +22,7 @@ def entries(request):
 def list_entries():
 	entries = []
 	for entry in Entry.objects.filter(archived=False):
-		entries.append({'timestamp': entry.timestamp, 'user': entry.user, 'item': entry.item.name})
+		entries.append({'timestamp': entry.timestamp.isoformat(), 'user': entry.user, 'item': entry.item.name})
 	return {'count': Entry.objects.count(), 'entries': entries}
 
 

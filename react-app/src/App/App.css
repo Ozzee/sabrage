@@ -1,0 +1,14 @@
+.App {
+  max-width: 500px;
+  width: 100%;
+}
+
+h1 {
+	font-size: 2em;
+	font-family: 'Bitter', serif;
+	font-weight: 700;
+	margin: 5px 0;
+	color: #fff;
+	text-shadow: 1px 1px 5px black;
+}
+

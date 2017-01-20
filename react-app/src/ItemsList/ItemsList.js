@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import './ItemsList.css';
-import Container from './Container';
+import Container from '../Container/Container';
 
 class ItemsList extends Component {
 

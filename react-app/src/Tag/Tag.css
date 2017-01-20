@@ -1,0 +1,29 @@
+button.tag {
+	display: inline-block;
+	padding: 8px 25px;
+	font-size: 12px;
+	font-family: "Bitter", serif;
+	font-weight: 700;
+	line-height: 1.8;
+	appearance: none;
+	box-shadow: none;
+	border-radius: 0;
+	color: #fff;
+  	border: none;
+  	border-radius: 3px;
+  	margin: 3px;
+}
+
+button.tag:focus {
+	outline: 0;
+}
+
+button.tag.red:hover, button.tag.red.selected {
+	background-color: #923434;
+  	text-shadow: -1px 1px #6d2727;
+}
+
+button.tag.green:hover, button.tag.green.selected {
+	background-color: #349251;
+    text-shadow: -1px 1px #276d33;
+}

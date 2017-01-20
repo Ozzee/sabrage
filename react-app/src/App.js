@@ -1,18 +1,31 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Adder from './Adder';
+import ItemsList from './ItemsList';
 
 class App extends Component {
   render() {
+    const items = [
+      {
+        name: 'Oskar',
+        datetime: '2017-01-01T01:02:00+02:00',
+        item: 'Patron'
+      },
+      {
+        name: 'Pietu',
+        datetime: '2017-01-01T03:02:00+02:00',
+        item: 'Patron'
+      },
+      {
+        name: 'Peter',
+        datetime: '2017-01-02T01:02:00+02:00',
+        item: 'Patron'
+      },
+    ];
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Adder />
+        <ItemsList items={items}/>
       </div>
     );
   }

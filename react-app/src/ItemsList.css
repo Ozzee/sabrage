@@ -1,0 +1,13 @@
+.ItemsList {
+	
+}
+
+.ItemsTable td {
+	padding: 1em;
+	font-size: 0.8em;
+	color: #505050;
+}
+
+td.time {
+	padding-left: 5em;
+}

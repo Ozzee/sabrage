@@ -17,22 +17,22 @@ button.btn:focus {
 	outline: 0;
 }
 
-button.btn.red {
+button.btn.enabled.red {
 	background-color: #c86464;
   	text-shadow: -1px 1px #b84141;
 }
 
-button.btn.green {
+button.btn.enabled.green {
 	background-color: #64c895;
     text-shadow: -1px 1px #41b871;
 }
 
-button.btn.red:hover {
+button.btn.enabled.red:hover {
 	background-color: #923434;
   	text-shadow: -1px 1px #6d2727;
 }
 
-button.btn.green:hover {
+button.btn.enabled.green:hover {
 	background-color: #349251;
     text-shadow: -1px 1px #276d33;
 }

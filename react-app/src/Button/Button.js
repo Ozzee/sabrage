@@ -3,7 +3,8 @@ import './Button.css';
 
 class Button extends Component {
 	render() {
-		return (<button className={'btn ' + this.props.color}>{this.props.text}</button>);
+		const enabled = this.props.enabled ? 'enabled' : '';
+		return (<button className={'btn ' + this.props.color + ' ' + enabled} onClick={this.props.handleClick}>{this.props.text}</button>);
 	}
 }
 

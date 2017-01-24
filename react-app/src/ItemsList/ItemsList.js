@@ -10,9 +10,16 @@ class ItemsList extends Component {
 
 		this.state = {entries: []};
 		
-		fetch('entries/', {credentials: 'include'})
-			.then((response) => response.json())
-			.then((json) => this.setState({entries: json.entries}));
+		fetch('http://localhost:8000/sabrage/entries/', {credentials: 'include'})
+			.then((response) => {
+				if (response.ok) {
+						response.json().then((json) => {
+						this.setState({entries: json.entries})
+					});
+				} else {
+					console.error(response)
+				}
+			});
 	}
 
 	line(item) {

@@ -1,20 +1,16 @@
 import React, { Component } from 'react';
 import Container from '../Container/Container';
 import Button from '../Button/Button';
-import ItemSelector from '../ItemSelector/ItemSelector'
+import ItemSelector from '../ItemSelector/ItemSelector';
+import UserSelector from '../UserSelector/UserSelector';
 import './Adder.css';
 
 class Adder extends Component {
-
-	componentDidMount() {
-		document.getElementById('nameInput').focus();
-	}
-	
 	render() {
 		return (
 			<Container>
 				<div className="Adder row">
-					<input id="nameInput" type="text" />
+					<UserSelector />
 				</div>
 				<div className="row">
 					<ItemSelector />

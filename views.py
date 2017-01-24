@@ -4,6 +4,8 @@ from django.http import HttpResponse, JsonResponse, HttpResponseBadRequest
 from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import csrf_exempt
 from .models import Entry, Item
+from django.conf import settings
+
 
 @require_http_methods(["GET"])
 def index(request):
@@ -16,7 +18,7 @@ def entries(request):
 	if request.method == 'POST':
 		return add_entry(request)
 	else:
-		return JsonResponse(list_entries())
+		return set_headers(JsonResponse(list_entries()))		
 
 
 def list_entries():
@@ -35,4 +37,10 @@ def add_entry(request):
 	return JsonResponse(entry)
 
 def suggest_users(request):
-	return JsonResponse({'value': '', 'suggestions': ['Oskar', 'Pietu', 'Peter']})
+	return set_headers(JsonResponse({'users': ['Oskar', 'Pietu', 'Peter']}))
+
+def set_headers(response):
+	if settings.DEBUG:
+			response['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+			response['Access-Control-Allow-Credentials'] = 'true'
+	return response

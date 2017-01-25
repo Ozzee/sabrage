@@ -5,23 +5,6 @@ import Container from '../Container/Container';
 
 class ItemsList extends Component {
 
-	constructor(props) {
-		super(props);
-
-		this.state = {entries: []};
-		
-		fetch('http://localhost:8000/sabrage/entries/', {credentials: 'include'})
-			.then((response) => {
-				if (response.ok) {
-						response.json().then((json) => {
-						this.setState({entries: json.entries})
-					});
-				} else {
-					console.error(response)
-				}
-			});
-	}
-
 	line(item) {
 		const time = moment(item.timestamp);
 		return (<tr key={item.timestamp+item.item}>
@@ -32,7 +15,7 @@ class ItemsList extends Component {
 	}
 
 	render() {
-		const lines = this.state.entries
+		const lines = this.props.entries
 			.sort((a, b) => a.timestamp < b.timestamp)
 			.map((item) => this.line(item));
 

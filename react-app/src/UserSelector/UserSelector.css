@@ -44,3 +44,7 @@ ul.userSuggestions li:hover {
 	padding: 1em;
 	background-color: #f6f6f6;
 }
+
+.typed {
+	font-style: italic;
+}

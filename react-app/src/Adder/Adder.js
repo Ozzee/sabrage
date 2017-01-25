@@ -13,6 +13,7 @@ class Adder extends Component {
 		this.selectUser = this.selectUser.bind(this);
 		this.addItem = this.addItem.bind(this);
 		this.handleItemSelection = this.handleItemSelection.bind(this);
+		this.closeDropdown = this.closeDropdown.bind(this);
 
 		this.state = {
 			inputActive: false,
@@ -27,8 +28,16 @@ class Adder extends Component {
 	}
 
 	addItem(e) {
+		const request = {
+			method: 'POST',
+			credentials: 'include',
+			body: '{"user": "' + this.state.inputValue + '", "item": "' + this.state.selectedItem + '"}'
+		};
 		if (this.validateForm()) {
-			this.reset();
+			fetch('http://localhost:8000/sabrage/entries/', request).then((response) => {
+					this.reset();
+					this.props.updateTable();
+				});
 		}
 	}
 
@@ -45,7 +54,11 @@ class Adder extends Component {
 	}
 
 	selectUser(user) {
-		this.setState({inputActive: false, inputValue: user});
+		this.setState({inputValue: user});
+	}
+
+	closeDropdown() {
+		this.setState({inputActive: false});
 	}
 
 	handleItemSelection(item) {
@@ -75,7 +88,7 @@ class Adder extends Component {
 			<Container>
 				<div className="Adder row">
 					<UserSelector value={this.state.inputValue} users={this.state.suggestedUsers} active={this.state.inputActive} 
-						inputHandler={this.handleInputChange} focusHandler={this.handleInputFocus} selectUser={this.selectUser} />
+						inputHandler={this.handleInputChange} focusHandler={this.handleInputFocus} blurHandler={this.closeDropdown} selectUser={this.selectUser} />
 				</div>
 				<div className="row">
 					<ItemSelector handleItemClick={this.handleItemSelection} selectedItem={this.state.selectedItem} />

@@ -17,7 +17,7 @@ def index(request):
 def entries(request):
 	""" Return all non-archived entries or add new entry"""
 	if request.method == 'POST':
-		return add_entry(request)
+		return set_headers(add_entry(request))
 	else:
 		return set_headers(JsonResponse(list_entries()))		
 

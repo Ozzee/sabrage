@@ -5,7 +5,7 @@ Django module for letting users keep a tab. This can be used to allow, for examp
 Administration is done through the Django admin interface. There are two models:
 
 ### Entry
-This model represents an enty to the tab. 
+This model represents an entry to the tab. 
 
 * Has a user and an item.
 * The user is a text field in order to allow for more flexibility. E.g. running the page on a tablet without login.
@@ -36,3 +36,16 @@ INSTALLED_APPS = [
     'sabrage'
 ]
 ```
+
+It also needs to be configured to run at `/sabrage/` in `urls.py`
+```
+url(r'^sabrage/', include('sabrage.urls', namespace='sabrage'))
+```
+
+## Development
+
+All static files are added to git in order to make deployments easier. To compile the static files run `npm run build`. It will compile the files and copy them to the `static` directory where django's collectstatic will find them.
+
+
+
+

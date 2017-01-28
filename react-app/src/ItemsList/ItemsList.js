@@ -16,8 +16,8 @@ class ItemsList extends Component {
 
 	render() {
 		const lines = this.props.entries
-			.sort((a, b) => a.timestamp < b.timestamp)
-			.map((item) => this.line(item));
+			.map((item) => this.line(item))
+			.reverse();
 
 		return (
 			<Container >
